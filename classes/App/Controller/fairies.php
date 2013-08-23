@@ -61,33 +61,23 @@ class Fairies extends \App\Page {
                 
 		$id = $this->request->param('id');
                 $fairy = $this->pixie->orm->get('fairy')->where('id', $id)->find();
-		$this->view->fairy = $fairy;                
-		if($fairy->loaded()){
-                                           
-                        
-                        $this->request->method == 'POST';
+                if($this->request->method == 'POST'){
 
-                	//Create a new fairy
-			$fairy = $this->pixie-> orm->get('fairy');
-			
-			 //Set her name from the form POST data
-			$fairy->name = $this->request->post('name');
-			
-			//Set her interests from the form POST data
-			$fairy->interests = $this->request->post('interests');
-			
-			//Save her
-			$fairy->save();	
-						
-			
-			
-			//And redirect the user back to the list
-			return $this->redirect('/');
-		}
-		
-		//Show the form
-		$this->view->subview = 'edit';
-	}
+
+                        //Set her name from the form POST data
+                       $fairy->name = $this->request->post('name');
+
+                        //Set her interests from the form POST data
+                       $fairy->interests = $this->request->post('interests');
+
+                        //Save her
+                       $fairy->save();	
+                 }
+
+                $this->view->fairy = $fairy;	
+                //Show the form
+                $this->view->subview = 'edit';
+        }
 
         public function action_delete() {
 
