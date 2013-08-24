@@ -1,4 +1,4 @@
-<form method="POST">
+﻿<form method="POST">
 	<fieldset>
 		<legend>Add a new fairy</legend>
 		<label>Name</label>
@@ -8,5 +8,6 @@
 			<textarea name="interests"></textarea>
 		</div>
 		<button type="submit" class="btn btn-primary">Submit</button>
+                <a href="/" class="btn btn-primary">Cancel</a>
 	</fieldset>
 </form>

@@ -71,7 +71,10 @@ class Fairies extends \App\Page {
                        $fairy->interests = $this->request->post('interests');
 
                         //Save her
-                       $fairy->save();	
+                       $fairy->save();
+
+                       //And redirect the user back to the list
+		       return $this->redirect('/');	
                  }
 
                 $this->view->fairy = $fairy;	
