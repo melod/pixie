@@ -42,6 +42,9 @@ class Fairies extends \App\Page {
 			
 			//Set her name from the form POST data
 			$fairy->name = $this->request->post('name');
+
+                        //Set her tree from the form POST data
+			$fairy->tree_id = $this->request->post('tree_id');
 			
 			//Set her interests from the form POST data
 			$fairy->interests = $this->request->post('interests');
@@ -66,6 +69,9 @@ class Fairies extends \App\Page {
 
                         //Set her name from the form POST data
                        $fairy->name = $this->request->post('name');
+
+                       //Set her tree from the form POST data
+			$fairy->tree_id = $this->request->post('tree_id');
 
                         //Set her interests from the form POST data
                        $fairy->interests = $this->request->post('interests');
@@ -100,5 +106,27 @@ class Fairies extends \App\Page {
 		
 	}
 
+        public function action_inspect() {
+	
+		//Show a list of fairies
+		$this->view->subview = 'inspect';
+		
+		//Find all fairies and pass them to the view
+		$this->view->fairies = $this->pixie->orm->get('fairy')->find_all();
+
+                $this->view->count = $this->pixie->orm->get('fairy')->count_all();
+	}
+
+        public function action_tree() {
+
+                //Show the single fairy page
+		$this->view->subview = 'tree';
+                
+		$id = $this->request->param('id');
+                $fairy = $this->pixie->orm->get('fairy')->where('id', $id)->find();
+
+                $fairy = $pixie->orm->get('fairy')->where('id','$id')->find();
+                $this->view->fairy = $fairy;
         	
+        }
 }

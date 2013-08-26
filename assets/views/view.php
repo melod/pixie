@@ -1,8 +1,12 @@
 <h3><?php echo $fairy->name;?></h3>
 <a href="/fairies/edit/<?php echo $fairy->id;?>" class="btn btn-success">Edit</a>
 <a href="/fairies/delete/<?php echo $fairy->id;?>" class="btn btn-success">Hapus</a>
+
 <p class="lead">
-	<?php echo $fairy->interests;?>
+        <?php echo 'Tree:' .$fairy->tree_id;?>
+</p>
+<p class="lead">
+	<?php echo 'Interest:' .$fairy->interests;?>
 </p>
                
 <p class="all"> All Fairies: <a href="/"><?php echo $count;?></a></p>

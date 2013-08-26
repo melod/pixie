@@ -1,8 +1,8 @@
 <?php
-namespace App\Model;
+namespace App\Model; 
 
 //ORM will guess the name of the table
 //using the name of the class
-class Fairy extends \PHPixie\ORM\Model {
-
+class Fairy extends \PHPixie\ORM\Model {     
+    protected $belongs_to = array('tree');
 }
