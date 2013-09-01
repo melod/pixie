@@ -105,28 +105,24 @@ class Fairies extends \App\Page {
 		
 		
 	}
-
-        public function action_inspect() {
-	
-		//Show a list of fairies
-		$this->view->subview = 'inspect';
-		
-		//Find all fairies and pass them to the view
-		$this->view->fairies = $this->pixie->orm->get('fairy')->find_all();
-
-                $this->view->count = $this->pixie->orm->get('fairy')->count_all();
-	}
-
+        
         public function action_tree() {
-
-                //Show the single fairy page
-		$this->view->subview = 'tree';
                 
-		$id = $this->request->param('id');
-                $fairy = $this->pixie->orm->get('fairy')->where('id', $id)->find();
+		$this->view->subview = 'tree';
 
-                $fairy = $pixie->orm->get('fairy')->where('id','$id')->find();
-                $this->view->fairy = $fairy;
-        	
+                $id = $this->request->param('id');
+
+                $tree=$pixie->orm->get('tree')->where('id','$id')->find();
+
+                $tree->fairies
+                     ->find_all();
+                     ->count all();
+
+               		        	
         }
+
+        
+
+
+
 }

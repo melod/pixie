@@ -1,9 +1,11 @@
 <h3><?php echo $fairy->name;?></h3>
-<a href="/fairies/edit/<?php echo $fairy->id;?>" class="btn btn-success">Edit</a>
-<a href="/fairies/delete/<?php echo $fairy->id;?>" class="btn btn-success">Hapus</a>
+
+ <a href="/fairies/edit/<?php echo $fairy->id;?>"class="btn btn-success"><i class="icon-edit icon-large"></i></a>
+ <a href="/fairies/delete/<?php echo $fairy->id;?>" class="btn btn-danger"><i class="icon-remove icon-large"></i></a>
 
 <p class="lead">
-        <?php echo 'Tree:' .$fairy->tree_id;?>
+        <?php echo 'Tree:'?><a href="fairy/tree"><?php echo $fairy->tree->name;?></a></p>
+        
 </p>
 <p class="lead">
 	<?php echo 'Interest:' .$fairy->interests;?>
